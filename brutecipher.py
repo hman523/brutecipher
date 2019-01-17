@@ -1,7 +1,7 @@
 #Brutecipher: a program to test all rotations to decrypt a cipher
 #Author: Hunter Barbella (hman523)
-#Date: 11/27/17
-
+#Date: 1/17/19
+import argparse
 
 def rot(code, num):
 	newString = ""
@@ -17,8 +17,17 @@ def printAll(code):
 	for x in range(0, 26):
 		print(str(rot(code, x)) + ": Rot " +str(x))
 
-text = "QEB NRFZH YOLTK CLU GRJMP LSBO QEB IXWV ALD"
-text = text.lower()
-printAll(text)
+def main():
+    parser = argparse.ArgumentParser(description="Text to decode")
+    parser.add_argument('-t', dest='text', required=True)
+    args = parser.parse_args()
+    text = str(args.text)
+    text = text.lower()
+    printAll(text)
+
+
+if __name__ == '__main__':
+    main()
+
 
 
